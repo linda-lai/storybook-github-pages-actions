@@ -5,3 +5,5 @@
 
 ## Understanding GitHub Actions
 Learn the basics of [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions?learn=getting_started&learnProduct=actions), including core concepts and essential terminology.
+
+* [Working with GitHub Actions](https://jeffrafter.com/working-with-github-actions)
