@@ -14,3 +14,8 @@ Learn the basics of [GitHub Actions](https://docs.github.com/en/actions/learn-gi
 ## Storybook Add-Ons
 * [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y)
 * [Storybook and Figma](https://help.figma.com/hc/en-us/articles/360045003494-Storybook-and-Figma)
+* [Storybook Docs (MDX)](https://github.com/storybookjs/storybook/tree/next/addons/docs)
+
+## Theme
+* [Theming API](https://storybook.js.org/docs/react/configure/theming)
+* [Garden](https://garden.zendesk.com)
