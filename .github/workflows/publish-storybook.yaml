@@ -52,3 +52,26 @@ jobs:
           git push
           echo "Added/updated folder $FOLDER_NAME to gh-pages"
           echo "::set-output name=folder_name::$(echo $FOLDER_NAME)"
+  comment:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: publish
+    env:
+      STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
+    steps:
+      - name: Add Pull Request Comment
+        uses: actions/github-script@v5
+        env:
+          FOLDER_NAME: "${{ needs.publish }}"
+          STORYBOOK_URL: "${{ env.STORYBOOK_URL }}"
+        with:
+          script: |
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+              const { STORYBOOK_URL, FOLDER_NAME } = process.env
+              github.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Storybook was pre-published on Github Pages. See it on ${STORYBOOK_URL}/${FOLDER_NAME}/index.html`
+              });
