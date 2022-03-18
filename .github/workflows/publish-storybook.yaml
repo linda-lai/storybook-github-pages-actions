@@ -30,9 +30,9 @@ jobs:
           git config user.email "29894441+linda-lai@users.noreply.github.com"
 
           BRANCH_NAME=$GITHUB_HEAD_REF
-          if [ $GITHUB_REF == "refs/heads/master" ]
+          if [ $GITHUB_REF == "refs/heads/main" ]
           then
-              BRANCH_NAME="master"
+              BRANCH_NAME="main"
           fi
 
           FOLDER_NAME="$(echo "docs-$BRANCH_NAME" | sed -e 's/refs\///g' | sed -e 's/[\/\\]/-/g')"
