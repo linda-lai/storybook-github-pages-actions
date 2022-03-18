@@ -23,12 +23,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -x -o pipefail
+
           git config user.name "@linda-lai"
           git config user.email "29894441+linda-lai@users.noreply.github.com"
+
           FOLDER_NAME="$(echo "docs-$GITHUB_HEAD_REF" | sed -e 's/refs\///g' | sed -e 's/[\/\\]/-/g')"
+
           ls -la
+
           rm -rf $FOLDER_NAME
           git add $FOLDER_NAME
+
           git diff-index --quiet HEAD || git commit -m "chore(documentation): Remove $FOLDER_NAME folder [skip ci]"
           git push --force --set-upstream origin "HEAD:refs/heads/gh-pages"
+
           echo "Removed folder $FOLDER_NAME from gh-pages"
