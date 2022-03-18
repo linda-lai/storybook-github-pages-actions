@@ -1,7 +1,7 @@
 import React from "react";
 
 export default {
-  title: "button",
+  title: "Example/AccessibilityFigma",
 };
 
 export const Accessible = () => <button>Accessible button</button>;
