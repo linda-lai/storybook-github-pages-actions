@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Remove Storybook docs
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
