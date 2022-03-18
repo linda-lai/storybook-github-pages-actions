@@ -19,7 +19,7 @@ jobs:
       - name: Install 🔧
         run: |
           npm install
-      - name: Publish 🚀
+      - name: Publish Storybook 🚀
         id: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,8 +59,8 @@ jobs:
     env:
       STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
     steps:
-      - name: Add Pull Request Comment
-        uses: actions/github-script@v5
+      - name: Add pull request comment
+        uses: actions/github-script@v1
         env:
           FOLDER_NAME: "${{ needs.publish.outputs.folder_name }}"
           STORYBOOK_URL: "${{ env.STORYBOOK_URL }}"
