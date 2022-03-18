@@ -43,7 +43,7 @@ jobs:
           git reset
           git fetch origin gh-pages
 
-          git checkout gh-pages
+          git checkout gh-pages -f
           rm -rf $FOLDER_NAME
           mv storybook-static $FOLDER_NAME
 
