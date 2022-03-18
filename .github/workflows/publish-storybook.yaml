@@ -8,6 +8,7 @@ on:
       - "*"
 jobs:
   publish:
+    name: Publish Storybook to GitHub Pages
     runs-on: ubuntu-latest
     outputs:
       folder_name: ${{ steps.publish.outputs.folder_name }}
