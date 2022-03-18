@@ -62,7 +62,7 @@ jobs:
       - name: Add Pull Request Comment
         uses: actions/github-script@v5
         env:
-          FOLDER_NAME: "${{ needs.publish }}"
+          FOLDER_NAME: "${{ needs.publish.outputs.folder_name }}"
           STORYBOOK_URL: "${{ env.STORYBOOK_URL }}"
         with:
           script: |
