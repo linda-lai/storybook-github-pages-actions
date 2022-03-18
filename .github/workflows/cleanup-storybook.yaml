@@ -7,7 +7,6 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     name: Remove pre-published Storybook assets
-    needs: comment
     env:
       STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
       NPM_CONFIG_PROGRESS: "false"
