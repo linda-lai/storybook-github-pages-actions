@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
       - name: Install 🔧
         run: |
-          npm ci
+          npm install
       - name: Publish 🚀
         id: publish
         env:
