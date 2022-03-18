@@ -11,3 +11,10 @@ export const Inaccessible = () => (
     Inaccessible button
   </button>
 );
+
+Inaccessible.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/LERtPfjAehwLMJrm0tU6zz0b/Portfolio-2.0?node-id=0%3A1",
+  },
+};
