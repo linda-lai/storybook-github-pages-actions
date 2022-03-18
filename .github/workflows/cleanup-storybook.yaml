@@ -7,7 +7,6 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     name: Remove pre-published Storybook assets
-    needs: comment
     env:
       STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
       NPM_CONFIG_PROGRESS: "false"
@@ -17,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Remove Storybook docs
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
