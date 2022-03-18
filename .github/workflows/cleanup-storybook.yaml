@@ -1,6 +1,7 @@
 name: Cleanup Storybook
 on:
   pull_request:
+    types: [closed]
     branches:
       - main
 jobs:
