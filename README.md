@@ -10,3 +10,7 @@ Learn the basics of [GitHub Actions](https://docs.github.com/en/actions/learn-gi
 ## Understanding GitHub Pages
 * [@npm/gh-pages](https://www.npmjs.com/package/gh-pages): Publish files to a gh-pages branch on GitHub (or any other branch anywhere else).
 * [Deploy Storybook to GitHub Pages](https://dev.to/kouts/deploy-storybook-to-github-pages-3bij)
+
+## Storybook Add-Ons
+* [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y)
+* [Storybook and Figma](https://help.figma.com/hc/en-us/articles/360045003494-Storybook-and-Figma)
