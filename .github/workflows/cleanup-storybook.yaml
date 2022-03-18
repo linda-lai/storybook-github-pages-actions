@@ -1,4 +1,4 @@
-name: cleanup-storybook
+name: Cleanup Storybook
 on:
   pull_request:
     types: [closed]
@@ -13,7 +13,7 @@ jobs:
       NPM_CONFIG_PROGRESS: "false"
       CXX: "gcc-4.8"
     steps:
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2.3.1
         with:
           fetch-depth: 0
       - name: Remove Storybook docs
