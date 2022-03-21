@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - main
+    # paths:
+    #   - 'src/stories/**'
   pull_request:
     branches:
-      - "*"
+      - '*'
 jobs:
   publish:
     name: Publish Storybook to GitHub Pages
