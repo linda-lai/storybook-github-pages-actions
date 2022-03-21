@@ -3,6 +3,7 @@ import { create } from "@storybook/theming";
 
 export default create({
   base: "light",
+  panelPosition: "right",
 
   colorPrimary: getColor("kale"),
   colorSecondary: getColor("kale", 600),
