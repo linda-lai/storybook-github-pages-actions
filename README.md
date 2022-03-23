@@ -3,19 +3,19 @@
 ## Setup
 Install dependencies:
 
-```
+```sh
 npm i
 ```
 
 To run Storybook locally:
 
-```
+```sh
 npm run storybook
 ```
 
 To build Storybook locally:
 
-```
+```sh
 npm run build-storybook
 ```
 
