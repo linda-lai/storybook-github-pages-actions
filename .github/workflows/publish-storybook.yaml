@@ -3,9 +3,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/stories/**"
   pull_request:
     branches:
-      - '*'
+      - "*"
+    paths:
+      - "src/stories/**"
 jobs:
   publish:
     name: Publish Storybook to GitHub Pages
@@ -20,36 +24,28 @@ jobs:
       - name: Install 🔧
         run: |
           npm install
-      - name: Publish Storybook 🚀
+      - name: Publish Storybook 📖
         id: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -x -o pipefail
-
           git config user.name "@linda-lai"
           git config user.email "29894441+linda-lai@users.noreply.github.com"
-
           BRANCH_NAME=$GITHUB_HEAD_REF
           if [ $GITHUB_REF == "refs/heads/main" ]
           then
               BRANCH_NAME="main"
           fi
-
           FOLDER_NAME="$(echo "docs-$BRANCH_NAME" | sed -e 's/refs\///g' | sed -e 's/[\/\\]/-/g')"
-
           npm run build-storybook
-
           git reset
           git fetch origin gh-pages
-
           git checkout gh-pages -f
           rm -rf $FOLDER_NAME
           mv storybook-static $FOLDER_NAME
-
           git add $FOLDER_NAME
           git commit $FOLDER_NAME -m "docs: Publish Storybook changes on $BRANCH_NAME to GitHub Pages [skip ci]" --allow-empty
-
           git push
           echo "Added/updated folder $FOLDER_NAME to gh-pages"
           echo "::set-output name=folder_name::$(echo $FOLDER_NAME)"
