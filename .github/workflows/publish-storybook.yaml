@@ -23,7 +23,7 @@ jobs:
         with:
           filters: |
             stories:
-              - 'stories/**'
+              - '**/stories/**'
       - name: Install 🔧
         if: steps.filter.outputs.stories == 'true'
         run: |
@@ -77,7 +77,7 @@ jobs:
         with:
           filters: |
             stories:
-              - 'stories/**'
+              - '**/stories/**'
       - name: Add pull request comment
         uses: actions/github-script@v1
         if: steps.filter.outputs.stories == 'true'
