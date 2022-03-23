@@ -46,7 +46,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
               primary
               size="small"
               onClick={onCreateAccount}
-              label="Sign up"
+              label="Sign up!"
             />
           </>
         )}
