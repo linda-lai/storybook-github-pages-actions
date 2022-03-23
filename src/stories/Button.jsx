@@ -18,8 +18,7 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
-      {/* {label}❤️ */}
-      I'm a Button
+      {label}!!❤️
     </button>
   );
 };
