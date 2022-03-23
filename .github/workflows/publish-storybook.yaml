@@ -22,21 +22,21 @@ jobs:
   publish:
     name: Publish Storybook to GitHub Pages
     runs-on: ubuntu-latest
+    needs: filter
     outputs:
       folder_name: ${{ steps.publish.outputs.folder_name }}
-      stories: ${{ steps.filter.outputs.stories }}
     steps:
       - name: Checkout 🛒
         uses: actions/checkout@v2.3.1
         with:
           fetch-depth: 0
       - name: Install 🔧
-        if: steps.filter.outputs.stories == 'true'
+        if: needs.filter.outputs.stories == 'true'
         run: |
           npm install
       - name: Publish Storybook 🚀
         id: publish
-        if: steps.filter.outputs.stories == 'true'
+        if: needs.filter.outputs.stories == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -78,7 +78,7 @@ jobs:
     steps:
       - name: Add pull request comment
         uses: actions/github-script@v1
-        if: steps.filter.outputs.stories == 'true'
+        if: needs.filter.outputs.stories == 'true'
         env:
           FOLDER_NAME: "${{ needs.publish.outputs.folder_name }}"
           STORYBOOK_URL: "${{ env.STORYBOOK_URL }}"
