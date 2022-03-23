@@ -7,9 +7,23 @@ on:
     branches:
       - '*'
 jobs:
+  filter:
+    name: Detect changes to stories components
+    runs-on: ubuntu-latest
+    outputs:
+      stories: ${{ steps.filter.outputs.stories }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            stories:
+              - '**/stories/**'
   publish:
     name: Publish Storybook to GitHub Pages
     runs-on: ubuntu-latest
+    needs: filter
+    if: needs.filter.outputs.stories == 'true'
     outputs:
       folder_name: ${{ steps.publish.outputs.folder_name }}
     steps:
@@ -56,8 +70,8 @@ jobs:
   comment:
     name: Add Storybook link as pull request comment
     runs-on: ubuntu-latest
-    needs: publish
-    if: github.event_name == 'pull_request'
+    needs: [filter, publish]
+    if: github.event_name == 'pull_request' && needs.filter.outputs.stories == 'true'
     env:
       STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
     steps:
