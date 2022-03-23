@@ -69,6 +69,12 @@ jobs:
     env:
       STORYBOOK_URL: "https://linda-lai.github.io/storybook-github-pages-actions"
     steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            stories:
+              - 'stories/**'
       - name: Add pull request comment
         uses: actions/github-script@v1
         env:
