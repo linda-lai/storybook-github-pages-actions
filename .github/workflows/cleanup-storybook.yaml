@@ -2,8 +2,7 @@ name: Cleanup Storybook
 on:
   pull_request:
     types: [closed]
-    branches:
-      - main
+    branches: [main]
 jobs:
   cleanup:
     runs-on: ubuntu-latest

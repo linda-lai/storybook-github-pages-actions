@@ -1,15 +1,11 @@
 name: Publish Storybook
 on:
   push:
-    branches:
-      - main
-    paths:
-      - "src/stories/**"
+    branches: [main]
+    paths: ["src/stories/**"]
   pull_request:
-    branches:
-      - "*"
-    paths:
-      - "src/stories/**"
+    branches: ["*"]
+    paths: ["src/stories/**"]
 jobs:
   publish:
     name: Publish Storybook to GitHub Pages
